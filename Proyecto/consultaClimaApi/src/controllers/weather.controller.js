@@ -2,15 +2,8 @@ import { fetchWeather } from "../services/weather.service.js";
 
 export const getWeather = async (req, res) => {
   try {
-    const city = req.query.city;
-
-    if (!city) {
-      return res.status(400).json({
-        error: "La ciudad es requerida",
-      });
-    }
-
-    const data = await fetchWeather(city);
+    const city = req.query.city; // se toma el valor
+    const data = await fetchWeather(city); // en data se va el fetch
 
     res.json(data);
 
